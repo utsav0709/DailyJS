@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>DRUM KIT</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <style>
+    body {
+      font-size: 10px;
+      background: url(http://i.imgur.com/b9r5sEL.jpg) bottom center;
+      background-size: cover;
+    }
+    #btnContainer {
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-key {
+      border: 4px solid black;
+      border-radius: 4px;
+      text-align: center;
+      width: 8rem;
+      margin: 0 0.5rem;
+      background-color: rgba(0, 0, 0, 0.4);
+      transition: all 0.07s;
+      color: white;
+      font-family: 'Comfortaa', cursive;
+    }
+    h3 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    p {
+      color: #FBC850;
+    }
+    .playing {
+      transform: scale(1.1);
+      border-color: #ffc600;
+      box-shadow: 0 0 1rem #ffc600;
+    }
+
+    </style>
+  </head>
+  <body>
+    <!-- Buttons-Container  -->
+    <div id="btnContainer">
+      <!-- Button Div -->
+      <div id="KeyA" class="btn-key">
+        <h3>A</h3>
+        <p>
+          CLAP
+        </p>
+      </div>
+      <div id="KeyS" class="btn-key">
+        <h3>S</h3>
+        <p>
+          HIHAT
+        </p>
+      </div>
+      <div id="KeyD" class="btn-key">
+        <h3>D</h3>
+        <p>
+          KICK
+        </p>
+      </div>
+      <div id="KeyF" class="btn-key">
+        <h3>F</h3>
+        <p>
+          OPENHAT
+        </p>
+      </div>
+      <div id="KeyG" class="btn-key">
+        <h3>G</h3>
+        <p>
+          BOOM
+        </p>
+      </div>
+      <div id="KeyH" class="btn-key">
+        <h3>H</h3>
+        <p>
+          RIDE
+        </p>
+      </div>
+      <div id="KeyJ" class="btn-key">
+        <h3>J</h3>
+        <p>
+          SNARE
+        </p>
+      </div>
+      <div id="KeyK" class="btn-key">
+        <h3>K</h3>
+        <p>
+          TOM
+        </p>
+      </div>
+      <div id="KeyL" class="btn-key">
+        <h3>L</h3>
+        <p>
+          TINK
+        </p>
+      </div>
+    </div>
+
+    <!-- Script -->
+
+    <script>
+
+      // source object
+
+      let srcObj = {
+        KeyA: './resources/other/audio/drumkit/clap.wav',
+        KeyS: './resources/other/audio/drumkit/hihat.wav',
+        KeyD: './resources/other/audio/drumkit/kick.wav',
+        KeyF: './resources/other/audio/drumkit/openhat.wav',
+        KeyG: './resources/other/audio/drumkit/boom.wav',
+        KeyH: './resources/other/audio/drumkit/ride.wav',
+        KeyJ: './resources/other/audio/drumkit/snare.wav',
+        KeyK: './resources/other/audio/drumkit/tom.wav',
+        KeyL: './resources/other/audio/drumkit/tink.wav',
+      }
+
+      // function to add source to audio elem
+      function srcBinder (keycode) {
+        let audio = document.createElement('audio')
+        audio.src = srcObj[keycode]
+        audio.play()
+      }
+      // function to add animation to keypress
+      function animationBinder (keycode) {
+        let elem = document.getElementById(keycode)
+        elem.classList.add('playing')
+        document.body.addEventListener('keyup', function handler () {
+          elem.classList.remove('playing')
+        })
+      }
+      // Event Handler keydown
+      document.body.addEventListener('keydown', function handler (e) {
+        if(!Object.keys(srcObj).includes(e.code)) {
+          return;
+        }
+        srcBinder(e.code)
+        animationBinder(e.code)
+      })
+    </script>
+  </body>
+</html>
