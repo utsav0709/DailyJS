@@ -2,11 +2,11 @@
 let model = {
   init: function () {
     this.catData = {
-      'Kelly': ["https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496", 0],
-      'Julie': ["https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496", 0],
-      'Teo': ["https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496", 0],
-      'Cleo': ["https://lh3.ggpht.com/kixazxoJ2ufl3ACj2I85Xsy-Rfog97BM75ZiLaX02KgeYramAEqlEHqPC3rKqdQj4C1VFnXXryadFs1J9A=s0#w=640&h=496", 0],
-      'Paroh': ['https://lh3.ggpht.com/nlI91wYNCrjjNy5f-S3CmVehIBM4cprx-JFWOztLk7vFlhYuFR6YnxcT446AvxYg4Ab7M1Fy0twaOCWYcUk=s0#w=640&h=426', 0],
+      'Kelly': ["./resources/other/images/ccpr/1.jpeg", 0],
+      'Julie': ["./resources/other/images/ccpr/2.jpeg", 0],
+      'Teo': ["./resources/other/images/ccpr/3.jpeg", 0],
+      'Cleo': ["./resources/other/images/ccpr/4.jpeg", 0],
+      'Paroh': ['./resources/other/images/ccpr/5.jpeg', 0],
     }
   }
 }
