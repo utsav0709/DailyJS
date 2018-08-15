@@ -7,9 +7,8 @@
   let searchBtn = form.elements.searchbtn
   let Svalue = form.elements.searchValue
 
-  Svalue.addEventListener('change', () => {
+  Svalue.addEventListener('input', () => {
     query = Svalue.value
-    console.log(query)
   })
 
   searchBtn.addEventListener('click', () => {
@@ -20,6 +19,19 @@
         }
     let url = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=bb87f388b7b6546360303c48fe6b8b8e&format=json`;
     renderData(url)
+  })
+
+  document.body.addEventListener('keydown', (e) => {
+    if(e.code == 'Enter') {
+      if(results.rows.length > 1) {
+            for (let i = 30; i > 0; i--) {
+              results.rows[i].remove()
+            }
+          }
+      let url = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=bb87f388b7b6546360303c48fe6b8b8e&format=json`;
+      renderData(url)
+      e.preventDefault()
+    }
   })
 
   function renderData (url) {
