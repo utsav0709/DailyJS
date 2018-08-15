@@ -18,7 +18,7 @@
             results.rows[i].remove()
           }
         }
-    let url = `http://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=bb87f388b7b6546360303c48fe6b8b8e&format=json`;
+    let url = `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${query}&api_key=bb87f388b7b6546360303c48fe6b8b8e&format=json`;
     renderData(url)
   })
 
