@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Daily Work Log</title>
+    <link rel="stylesheet" href="./resources/css/reset.css">
+    <link rel="stylesheet" href="./resources/css/dailylog.css">
+  </head>
+  <body>
+    <!-- Header Area -->
+    <h1>Daily Work Log</h1>
+
+    <!-- Form Area -->
+    <form>
+      <label for="project">Project:</label>
+      <select name="project" id="project"></select><br />
+      <label for="workDescription">Work Description:</label>
+      <input type="text" name="workDescription" id="workDescription"><br />
+      <label for="time">Minutes:</label>
+      <input type="number" name="time" id="time"><br />
+      <button type="submit">Submit</button>
+    </form>
+    <hr />
+
+    <!-- Total Time Area -->
+    <div id="totalTime"></div>
+    <hr>
+
+  <!-- Work Stickies Area -->
+  <div id="stickies"></div>
+  </body>
+  <script src="./resources/js/dailylog.js"></script>
+</html>

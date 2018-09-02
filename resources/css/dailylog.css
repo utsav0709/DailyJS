@@ -1,0 +1,48 @@
+body {
+  font-size: 20px;
+  padding: 2rem;
+  background-color: skyblue;
+}
+h1 {
+  margin-bottom: 2rem;
+  text-decoration: underline;
+  font-size: 25px;
+}
+select, input {
+  width: 10rem;
+  height: 2rem;
+  margin-bottom: 2rem;
+}
+form {
+  font-size: 25px;
+}
+#stickies {
+  display: flex;
+  justify-content: flex-start;
+
+}
+.project-sticker {
+  width: 10rem;
+  height: 15rem;
+  border: 1px solid black;
+  padding: 1rem;
+  margin-right: 1rem;
+  overflow: hidden;
+}
+.project-sticker p:first-child {
+  color: red;
+  border-bottom: 1px solid black;
+  padding-bottom: 1rem;
+  font-size: 25px;
+}
+.project-sticker p:nth-child(2n) {
+  padding-top: 0.5rem;
+  padding-bottom: 1rem;
+  font-size: 25px;
+}
+.project-sticker span:nth-of-type(2n+1) {
+  margin-right: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+
+}

@@ -114,41 +114,43 @@
     <script>
 
       // source object
+      window.onload = function () {
+        let srcObj = {
+          KeyA: './resources/other/audio/drumkit/clap.wav',
+          KeyS: './resources/other/audio/drumkit/hihat.wav',
+          KeyD: './resources/other/audio/drumkit/kick.wav',
+          KeyF: './resources/other/audio/drumkit/openhat.wav',
+          KeyG: './resources/other/audio/drumkit/boom.wav',
+          KeyH: './resources/other/audio/drumkit/ride.wav',
+          KeyJ: './resources/other/audio/drumkit/snare.wav',
+          KeyK: './resources/other/audio/drumkit/tom.wav',
+          KeyL: './resources/other/audio/drumkit/tink.wav',
+        }
 
-      let srcObj = {
-        KeyA: './resources/other/audio/drumkit/clap.wav',
-        KeyS: './resources/other/audio/drumkit/hihat.wav',
-        KeyD: './resources/other/audio/drumkit/kick.wav',
-        KeyF: './resources/other/audio/drumkit/openhat.wav',
-        KeyG: './resources/other/audio/drumkit/boom.wav',
-        KeyH: './resources/other/audio/drumkit/ride.wav',
-        KeyJ: './resources/other/audio/drumkit/snare.wav',
-        KeyK: './resources/other/audio/drumkit/tom.wav',
-        KeyL: './resources/other/audio/drumkit/tink.wav',
-      }
-
-      // function to add source to audio elem
-      function srcBinder (keycode) {
-        let audio = document.createElement('audio')
-        audio.src = srcObj[keycode]
-        audio.play()
-      }
-      // function to add animation to keypress
-      function animationBinder (keycode) {
-        let elem = document.getElementById(keycode)
-        elem.classList.add('playing')
-        document.body.addEventListener('keyup', function handler () {
-          elem.classList.remove('playing')
+        // function to add source to audio elem
+        function srcBinder (keycode) {
+          let audio = document.createElement('audio')
+          audio.src = srcObj[keycode]
+          audio.play()
+        }
+        // function to add animation to keypress
+        function animationBinder (keycode) {
+          let elem = document.getElementById(keycode)
+          elem.classList.add('playing')
+          document.body.addEventListener('keyup', function handler () {
+            elem.classList.remove('playing')
+          })
+        }
+        // Event Handler keydown
+        document.body.addEventListener('keydown', function handler (e) {
+          if(!Object.keys(srcObj).includes(e.code)) {
+            return;
+          }
+          srcBinder(e.code)
+          animationBinder(e.code)
         })
       }
-      // Event Handler keydown
-      document.body.addEventListener('keydown', function handler (e) {
-        if(!Object.keys(srcObj).includes(e.code)) {
-          return;
-        }
-        srcBinder(e.code)
-        animationBinder(e.code)
-      })
+
     </script>
   </body>
 </html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CSS Variables</title>
+  </head>
+  <style>
+  :root {
+    --main-bg-color: coral;
+  }
+  body {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align:  center;
+    background-color: #233545;
+    color: white;
+  }
+  #heading-span {
+    color: var(--main-bg-color);
+  }
+  #display {
+    max-width: 100%;
+    background-color: var(--main-bg-color);
+    padding: 10px;
+    filter: blur(2px);
+  }
+  #display img {
+    max-width: 100%;
+  }
+  </style>
+  <body>
+    <h1>Update CSS Variables with <span id="heading-span">JS</span></h1>
+
+    <!-- Properties Area -->
+    <form>
+      <span>Spacing:</span>
+      <input type="range" name="spacing" min="10" max="200" step="1" value="10">
+      <span>Blur:</span>
+      <input type="range" name="blur" min="0" max="5" step="0.1" value="2">
+      <span>Base Color:</span>
+      <input type="color" name="baseColor" value="#E38A65">
+    </form>
+
+    <!-- Display Area -->
+    <div id="display">
+      <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" alt="sample">
+    </div>
+    <script>
+      // target form elements to get the values
+      let div = document.getElementById('display')
+      let form = document.forms[0]
+      let spacing = form.elements.spacing
+      let blur = form.elements.blur
+      let color = form.elements.baseColor
+
+
+      // spacing handler
+      spacing.addEventListener('input', spacingHandler)
+      function spacingHandler (event) {
+        div.style.padding = spacing.value + 'px'
+      }
+
+      // blur handler
+      blur.addEventListener('input', blurHandler)
+      function blurHandler (event) {
+        div.style.filter = `blur(${blur.value}px)`
+      }
+
+      // base color handler
+      color.addEventListener('change', colorHandler)
+      function colorHandler (event) {
+        document.documentElement.style.setProperty('--main-bg-color', `${color.value}`)
+      }
+    </script>
+  </body>
+</html>
